@@ -809,3 +809,39 @@ where $bb(L)_!(A,B) := bb(L)(!A, B)$
       &g << f = f compose !f compose nu_A
     $
 ]
+
+#exercise[
+  Prove this defines a category :
+  - Identity is $epsilon$
+  - $f << epsilon_A = f compose !epsilon_A compose eta_A = f$
+  - $epsilon_B << f = epsilon_B compose !f compose eta_A = f compose epsilon_(!A) compose eta_A = f$
+  - $
+      h << (g << f) &= h compose !(g compose !f compose nu_A) compose nu_A = h compose !g compose !!f compose !nu_A compose nu_A \
+      (h << g) << f &= (h compose !g compose nu_B) compose !f compose nu_A = h compose !g compose !!f compose nu_(!A) compose nu_A
+    $
+
+  Axioms of comonads
+  // https://q.uiver.app/#r=typst&q=WzAsNCxbMSwwLCIhQSJdLFsxLDEsIiEhQSJdLFswLDEsIiFBIl0sWzIsMSwiIUEiXSxbMCwyLCJpZF8oIUEpIiwyXSxbMCwzLCJpZF8oIUEpIl0sWzEsMiwiIWVwc2lsb25fQSJdLFsxLDMsImVwc2lsb25fKCFBKSIsMl0sWzAsMSwibnVfQSIsMl1d
+  - #align(center, diagram({
+    	node((0, 0), [$!A$])
+    	node((0, 1), [$!!A$])
+    	node((-1, 1), [$!A$])
+    	node((1, 1), [$!A$])
+    	edge((0, 0), (-1, 1), [$id_(!A)$], label-side: right, "->")
+    	edge((0, 0), (1, 1), [$id_(!A)$], label-side: left, "->")
+    	edge((0, 1), (-1, 1), [$!epsilon_A$], label-side: left, "->")
+    	edge((0, 1), (1, 1), [$epsilon_(!A)$], label-side: right, "->")
+    	edge((0, 0), (0, 1), [$nu_A$], label-side: right, "->")
+    }))
+  // https://q.uiver.app/#r=typst&q=WzAsNCxbMCwwLCIhQSJdLFsxLDAsIiEhQSJdLFsxLDEsIiEhIUEiXSxbMCwxLCIhIUEiXSxbMCwxLCJudV9BIl0sWzEsMiwibnVfKCFBKSJdLFszLDIsIiFudV9BIiwyXSxbMCwzLCJudV9BIiwyXV0=
+  - #align(center, diagram({
+    	node((0, 0), [$!A$])
+    	node((1, 0), [$!!A$])
+    	node((1, 1), [$!!!A$])
+    	node((0, 1), [$!!A$])
+    	edge((0, 0), (1, 0), [$nu_A$], label-side: left, "->")
+    	edge((1, 0), (1, 1), [$nu_(!A)$], label-side: left, "->")
+    	edge((0, 1), (1, 1), [$!nu_A$], label-side: right, "->")
+    	edge((0, 0), (0, 1), [$nu_A$], label-side: right, "->")
+    }))
+]
