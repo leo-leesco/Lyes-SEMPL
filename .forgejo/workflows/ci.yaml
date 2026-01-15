@@ -20,9 +20,11 @@ jobs:
           submodules: recursive
       - name: build
         run: |
+          for f in *.typ; do
+            typst c $f
+          done
           mkdir output
-          typst c 1.typ output/
-          typst c 2.typ output/
+          mv *.pdf output
       - name: upload part 1
         uses: forgejo/upload-artifact@v4
         with:
