@@ -20,11 +20,12 @@ jobs:
           submodules: recursive
       - name: build
         run: |
-          typst c 1.typ
-          typst c 2.typ
+          mkdir output
+          typst c 1.typ output/
+          typst c 2.typ output/
       - name: upload part 1
         uses: forgejo/upload-artifact@v4
         with:
           name: SEMPL.zip
-          path: *.pdf
+          path: output
           if-no-files-found: error
