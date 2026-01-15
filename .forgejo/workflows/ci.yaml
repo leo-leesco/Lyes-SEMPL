@@ -25,14 +25,6 @@ jobs:
       - name: upload part 1
         uses: forgejo/upload-artifact@v4
         with:
-          name: partie1.pdf
-          path: 1.pdf
+          name: SEMPL.zip
+          path: *.pdf
           if-no-files-found: error
-          include-hidden-files: true
-      - name: upload part 2
-        uses: forgejo/upload-artifact@v4
-        with:
-          name: partie2.pdf
-          path: 2.pdf
-          if-no-files-found: error
-          include-hidden-files: true
