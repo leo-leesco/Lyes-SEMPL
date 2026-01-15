@@ -972,5 +972,5 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
 ]
 
 #exercise[
-  $("PCoh", **, 1)$ is symmetric monoidal.
+  $("PCoh", (*), 1)$ is symmetric monoidal.
 ]
