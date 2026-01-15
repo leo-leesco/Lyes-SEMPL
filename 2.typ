@@ -911,3 +911,66 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
   pcohs and linear morphisms form a category PCoh.
 ])
 
+#remark([ \
+  $ tilde(id) = (delta_(x_1, x_2))_(cases(x_1 in  |X|, x_2 in |X|)) 
+  #h(1cm) (delta_(x,y) = cases(1 #h(.2cm) & x = y, 0 & x eq.not y)) $ 
+  $ tilde(g compose f) = tilde(g) tilde(f) = (sum_(y in |Y|) tilde(g)_(y,z) tilde(f)_(x, y))_(cases(x in |X|, z in |Z|)) $
+])
+
+#definition([
+  Let $X_1, ..., X_n, Y$ be pcohs. A n-linear (or multilinear) map from $X_1, ..., X_n$ to $Y$ is a map 
+  $ f in "Set"(P X_1  times ... times P X_n, P Y) $
+  such that there exists a (necessarily unique) tensor 
+  $ tilde(f) in RR^(|X_1| times ... times | X_n | times | Y |) $
+  such that $forall (a_i) in (P X_i)$,
+  $ f(a_1, ..., a_n) = (sum_(cases(x_1 in |X_1|, ..., x_n in |X_n|)) tilde(f)_(x_1, ... x_n, y) dot a_x_1 ... dot a_x_n )_(y in |Y|) $
+
+])
+
+#definition([
+  $X (*) Y$ is defined by 
+  $| X (*) Y| = |X| times |Y|$ and,
+  $ P (X (*) Y)^bot = {tilde(f), f in "PCoh"(X, Y, 1)} $ ($f$ bilinear from $X, Y$ to 1)
+])
+
+#remark[
+  For every $X, Y$ PCohs,
+  $
+    "PCoh"(X (*) Y, 1) & -> "PCoh"(X, Y\; 1) \
+                  f & |-> ((a, b) |-> f(a (*) b))
+  $
+  is a bijection where
+  $
+    a (*) b = (a_x b_y)_(x, y) in P(X (*) Y)
+  $
+]
+#proposition[
+  For every PCohs $X, Y, Z$,
+  $
+    "PCoh"(X (*) Y, Z) & -> "PCoh"(X, Y\; Z) \
+                  f & |-> ((a, b) |-> f(a (*) b))
+  $
+  is a bijection
+]
+
+#proposition[
+  For every PCohs $W_1, ..., W_n, X, Y, Z$,
+  $
+    "PCoh"(W_1, ..., W_n, X (*) Y\; Z) & -> "PCo"h(W_1, ..., W_n, X, Y\; Z) \
+    f & |-> ((w_1, ..., w_n, x, y) |-> f(w_1, ..., w_n, a (*) b))
+  $
+  is a bijection
+]
+
+#proposition[
+  For every PCohs $W_1, ..., W_n, Z$,
+  $
+    "PCoh"(W_1, ..., W_n, 1\; Z) & -> "PCo"h(W_1, ..., W_n, X, Y\; Z) \
+    f & |-> ((w_1, ..., w_n) |-> f(w_1, ..., w_n, 1))
+  $
+  is a bijection
+]
+
+#exercise[
+  $("PCoh", **, 1)$ is symmetric monoidal.
+]
