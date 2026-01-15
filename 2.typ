@@ -811,7 +811,10 @@ where $bb(L)_!(A,B) := bb(L)(!A, B)$
 ]
 
 #exercise[
-  Prove this defines a category :
+  Prove this defines a category.
+]
+
+#solution[
   - Identity is $epsilon$
   - $f << epsilon_A = f compose !epsilon_A compose eta_A = f$
   - $epsilon_B << f = epsilon_B compose !f compose eta_A = f compose epsilon_(!A) compose eta_A = f$
@@ -845,3 +848,66 @@ where $bb(L)_!(A,B) := bb(L)(!A, B)$
     	edge((0, 0), (0, 1), [$nu_A$], label-side: right, "->")
     }))
 ]
+
+=== The Seely isomorphisms
+
+Let $A, B in Ob(LL)$. Assue the cartesian product $A \& B$ exists in $LL$.
+
+$V$ is the right adjoint $=>$ preserves limits.
+
+$V ( A \& B ) tilde.eq V A times V B$
+
+$L$ is strongly monoidal so $L (V A times V B) tilde.eq underbrace(L V A, !A) (*) underbrace(L V B, !B)$
+
+So $underbrace(L V (A \& B), !(A \& B)) tilde.eq L V A (*) L V B tilde.eq !A (*) !B$
+
+Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
+
+== A model of Linear Logic : Probabilistic coherence spaces
+
+#definition(subtitle: [Duality in $RR^X_+$])[
+  Let $X$ be a countable set :
+  - For all $x in X$, define $Pi_x : cases(RR^X_+ -> RR_+, a space t-> space a_x)$
+
+    define $e_x in RR^X_+$ by $pi_x(e_x) = 1$
+  - For all $a, b in RR^X_+$, let $a ⋅ b = sum_(x in X) a_x b_x in [0, +infinity[]$
+  - For all $P subset.eq RR^X_+$, let
+    $
+      P^bot = { b in RR^X_+; forall a in P, underbrace((a⋅b <= 1), R(A, b)) } subset.eq RR^X_+
+    $
+    In particular $P^(bot bot) subset.eq P$
+]
+
+#definition([
+  A probabilistic coherent space is a pair
+  $X = (|X|, P X)$ where $|X|$ is a countable set, and $P X subset.eq RR^(|X|)_+$ such that
+  - $P X ^(bot bot) = P X$ (equivalent to $P X ^(bot bot) subset.eq P X$)
+  - $forall x in |X|$, 
+    - $exists lambda > 0, lambda e_X in P X$  
+    - $exists lambda > 0, lambda e_x in P X ^bot$
+])
+
+
+#example[
+  $
+    ({*}, [0, 1]) &=: 1\
+                  &=: bot\
+    (emptyset, {0}) &=: top\
+                    &=: 0\
+    (|X|, [0, 1]^(|X|))\
+    ({0, 1}, ([0, 1]^2)^bot &= {binom(x, y) | (binom(1, 1) dot binom(x, y)) = x + y <= 1 }) \
+  $
+  Given $X = (|X|, P X)$ a pcoh,
+  $X^bot := (|X|, P X^bot)$ is a pcoh.
+]
+
+#definition([
+  Let $X, Y$ be pcohs. 
+  A _linear morphism_ from $X$ to $Y$ is a map \
+  #align(center)[$f in "Set"(P X, P Y)$]
+  such that there exists a (necessarily unique) matrix $tilde(f) in RR^(|X| times |Y|)_+$ such that 
+  for all $a in P X$, \ 
+  #align(center)[$f(a) = (sum_(x in X) tilde(f)_(x,y) a_x)_(y in |Y|)$]
+  pcohs and linear morphisms form a category PCoh.
+])
+
