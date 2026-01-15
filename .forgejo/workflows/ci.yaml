@@ -1,0 +1,38 @@
+name: Build lyes.eu
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: fedora-latest
+    steps:
+      - name: install dependencies
+        run: |
+          dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+          dnf install -y typst nodejs24 git
+          mv /usr/bin/node-24 /usr/bin/node
+      - name: checkout code
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - name: build
+        run: |
+          typst c 1.typ
+          typst c 2.typ
+      - name: upload part 1
+        uses: forgejo/upload-artifact@v4
+        with:
+          name: partie1.pdf
+          path: 1.pdf
+          if-no-files-found: error
+          include-hidden-files: true
+      - name: upload part 2
+        uses: forgejo/upload-artifact@v4
+        with:
+          name: partie2.pdf
+          path: 2.pdf
+          if-no-files-found: error
+          include-hidden-files: true
