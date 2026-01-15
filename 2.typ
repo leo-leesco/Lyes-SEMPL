@@ -8,7 +8,7 @@
 #let edge = edge.with(stroke: scheme.fg, crossing-fill: scheme.bg)
 #let prooftree = prooftree.with(stroke: stroke(thickness: 0.05em, paint: scheme.fg))
 
-#show: paper.with(scheme: scheme, title: "SEMPL", subtitle: "Lesson 1")
+#show: paper.with(scheme: scheme, title: "SEMPL", subtitle: "Part 2", author: "Guillaume Geoffroy's Course\nNotes by Lyes Saadi")
 
 #let environment = environment.with(scheme: scheme)
 #let environment_ = environment_.with(scheme: scheme)

@@ -4,7 +4,7 @@
 #let scheme = dark
 #let edge = edge.with(stroke: scheme.fg, crossing-fill: scheme.bg)
 
-#show: paper.with(scheme: scheme, title: "SEMPL", subtitle: "Lesson 1")
+#show: paper.with(scheme: scheme, title: "SEMPL", subtitle: "Part 1", author: "Paul-André Mellies' Course\nNotes by Lyes Saadi")
 
 #let environment = environment.with(scheme: scheme)
 #let environment_ = environment_.with(scheme: scheme)
