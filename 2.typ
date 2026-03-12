@@ -4,7 +4,7 @@
 #import "@preview/curryst:0.6.0": rule, prooftree
 #import "@preview/pinit:0.2.2": *
 
-#let scheme = dark
+#let scheme = if "scheme" in sys.inputs and sys.inputs.scheme == "light" { light } else { dark }
 #let edge = edge.with(stroke: scheme.fg, crossing-fill: scheme.bg)
 #let prooftree = prooftree.with(stroke: stroke(thickness: 0.05em, paint: scheme.fg))
 
