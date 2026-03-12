@@ -867,15 +867,15 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
 
 #definition(subtitle: [Duality in $RR^X_+$])[
   Let $X$ be a countable set :
-  - For all $x in X$, define $pi_x : cases(RR^X_+ -> RR_+, a space t-> space a_x)$
+  - For all $x in X$, define $Pi_x : cases(RR^X_+ -> RR_+, (a_y)_(y in X) space t-> space a_x)$
 
-    define $e_x in RR^X_+$ by $pi_x (e_x) = 1$
+    define $e_x in RR^X_+$ by $Pi_x (e_x) = 1$
   - For all $a, b in RR^X_+$, let $a ⋅ b = sum_(x in X) a_x b_x in [0, +infinity[]$
   - For all $P subset.eq RR^X_+$, let
     $
-      P^bot = { b in RR^X_+; forall a in P, underbrace(a⋅b <= 1, R(A, b)) } subset.eq RR^X_+
+      P^bot = { b in RR^X_+; forall a in P, underbrace(a⋅b <= 1, "or any other R(a, b)") } subset.eq RR^X_+
     $
-    In particular $P^(bot bot) subset.eq P$
+    In particular $P subset.eq P^(bot bot)$
 ]
 
 #definition([
@@ -883,7 +883,7 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
   $X = (|X|, P X)$ where $|X|$ is a countable set, and $P X subset.eq RR^(|X|)_+$ such that
   - $P X ^(bot bot) = P X$ (equivalent to $P X ^(bot bot) subset.eq P X$)
   - $forall x in |X|$, 
-    - $exists lambda > 0, lambda e_X in P X$  
+    - $exists lambda > 0, lambda e_x in P X$  
     - $exists lambda > 0, lambda e_x in P X ^bot$
 ])
 
@@ -921,7 +921,7 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
   Let $X_1, ..., X_n, Y$ be pcohs. A n-linear (or multilinear) map from $X_1, ..., X_n$ to $Y$ is a map 
   $ f in "Set"(P X_1  times ... times P X_n, P Y) $
   such that there exists a (necessarily unique) tensor 
-  $ tilde(f) in RR^(|X_1| times ... times | X_n | times | Y |) $
+  $ tilde(f) in RR^(|X_1| times ... times |X_n| times |Y|) $
   such that $forall (a_i) in (P X_i)$,
   $ f(a_1, ..., a_n) = (sum_(cases(x_1 in |X_1|, ..., x_n in |X_n|)) tilde(f)_(x_1, ... x_n, y) dot a_x_1 ... dot a_x_n )_(y in |Y|) $
 
@@ -929,7 +929,7 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
 
 #definition([
   $X (*) Y$ is defined by 
-  $| X (*) Y| = |X| times |Y|$ and,
+  $|X (*) Y| = |X| times |Y|$ and,
   $ P (X (*) Y)^bot = {tilde(f), f in "PCoh"(X, Y, 1)} $ ($f$ bilinear from $X, Y$ to 1)
 ])
 
