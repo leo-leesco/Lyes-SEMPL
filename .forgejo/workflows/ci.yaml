@@ -21,7 +21,7 @@ jobs:
       - name: build
         run: |
           for f in *.typ; do
-            typst c $f
+            typst c $f --input scheme=dark
           done
           mkdir output
           mv *.pdf output
