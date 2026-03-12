@@ -4,7 +4,7 @@
 #import "@preview/curryst:0.6.0": rule, prooftree
 #import "@preview/pinit:0.2.2": *
 
-#let scheme = if "scheme" in sys.inputs and sys.inputs.scheme == "light" { light } else { dark }
+#let scheme = if "scheme" in sys.inputs and sys.inputs.scheme == "dark" { dark } else { light }
 #let edge = edge.with(stroke: scheme.fg, crossing-fill: scheme.bg)
 #let prooftree = prooftree.with(stroke: stroke(thickness: 0.05em, paint: scheme.fg))
 
@@ -34,8 +34,8 @@ Idea :
 - Model of the $lambda$-calculus
 - Structure over signature $("Lambda", "App")$ satisfying
   $
-    &beta : "App"("Lambda"(x . t), u) = t[x := u]\
-    &eta : "Lambda"(x . "App"(t, x)) = t
+    &beta : "App"("Lambda"(x ⋅ t), u) = t[x := u]\
+    &eta : "Lambda"(x ⋅ "App"(t, x)) = t
   $
 
 == Algrebraic syntax with binders
@@ -50,7 +50,7 @@ An algebraic signature with binders is a pair $Sigma = ("Op"_Sigma, "Ar"_Sigma)$
 
 #example[
   $
-    Sigma_1 = ({"Lam", "App"}, cases("Lam" mapsto (1), "App" mapsto (0, 0))})
+      Sigma_1 = ({"Lam", "App"}, { #stack(spacing: 0.5em, $"Lam" mapsto (1)$, $"App" mapsto (0, 0)$)})
   $
 ]
 
@@ -61,8 +61,8 @@ An algebraic signature with binders is a pair $Sigma = ("Op"_Sigma, "Ar"_Sigma)$
   $alpha$-renaming.
 
   $
-    t := &x " (variable)"\
-         &alpha((x_(1, 1), ..., x_(1, n_1))⋅t_1, ..., (x_(k, 1), ..., x_(k, n_k))⋅t_k)\
+    t := &| x " (variable)"\
+         &| alpha((x_(1, 1), ..., x_(1, n_1))⋅t_1, ..., (x_(k, 1), ..., x_(k, n_k))⋅t_k)\
          &"Where " alpha in "Op"_Sigma " and " (n_1, ..., n_k) = "Ar"_Sigma (alpha)
          &"and " forall i, x_(i, 1), ..., x_(i, n_i) " are pairwise " eq.not
   $
@@ -87,7 +87,7 @@ An algebraic signature with binders is a pair $Sigma = ("Op"_Sigma, "Ar"_Sigma)$
 
 #notation[
   Let $Sigma$ be a signature, $x_1, ..., x_n$ pairwise $eq.not$ variables and
-  t, u_1, ..., u_n terms over $Lambda$.
+  $t, u_1, ..., u_n$ terms over $Lambda$.
 
   We write $t[x_1 := u_1, ..., x_n := u_1]$ for the simultaneous capture-avoiding
   (#sym.arrow.l.r.double compatible with $eq.not$) substitution of each free
@@ -678,7 +678,7 @@ $(times) 1$ : Symmetric monoidal category
   $(1 (+) 1) \& 1 tilde.eq.not (1 \& 1) (+) (1 \& 1)$
 ]
 
-== Interpreting $!$ Linean/Non-Linear adjunctions
+== Interpreting $!$ Linear/Non-Linear adjunctions
 
 #definition[
   Let $(cC, ⋅, I) space (cD, (x), 1)$ be symmetric monoidal categories.
