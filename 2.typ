@@ -605,12 +605,12 @@ $(times) 1$ : Symmetric monoidal category
 #let FinBan = $"FinBan"$
 
 #example[
-  Let $FinBan$ (finite Banard) be the category defined by :
+  Let $FinBan$ (finite Banach) be the category defined by :
   - $Ob(FinBan)$ : All finite-dimensional normed ($RR$-)vector spaces 
-  - $FinBan(A, B)$ =
-    ${ &f : A --> B "linear"\ &"s.t." forall ||f(a)|| <= ||a|| }$ 
-  - $FinBan(A_1, ..., A_n, B)$ =
-    ${ &f : A_1 times ... times A_n --> B space n"-linear (linear wrt each variable)"\ &"s.t." forall ||f(a_1, ..., a_n)|| <= ||a_1|| ... ||a_n|| }$ 
+  - $FinBan(A, B) =
+  { &f : A --> B "linear"\ &"s.t." forall a, ||f(a)|| <= ||a|| }$ 
+  - $FinBan(A_1, ..., A_n, B) =
+  { &f : A_1 times ... times A_n --> B space n"-linear (linear wrt each variable)"\ &"s.t." forall ||f(a_1, ..., a_n)|| <= ||a_1|| ... ||a_n|| }$ 
   - $top = 0 = { 0 }$
   - $A & B = A times B space (= A + B)$, $||(a, b)|| = max(||a||, ||b||)$\
     Exercise : Prove that product\
@@ -619,7 +619,7 @@ $(times) 1$ : Symmetric monoidal category
 
     Let $f in FinBan(C, A)$, $g in FinBan(C, B)$.
 
-    $<f, g>$ must be defined by $<f, g>(c) = (f(c), g(c))$
+    $pair(f, g)$ must be defined by $pair(f, g)(c) = (f(c), g(c))$
 
     let $c in C$, $underbrace(||f(c)|| <= c quad ||g(c)|| <= c, ||(f(c), g(c))|| <= c)$
 
@@ -678,7 +678,7 @@ $(times) 1$ : Symmetric monoidal category
   $(1 (+) 1) \& 1 tilde.eq.not (1 \& 1) (+) (1 \& 1)$
 ]
 
-== Interpreting $!$ Linear/Non-Linear adjunctions
+== Interpreting $!$ : Linear/Non-Linear adjunctions
 
 #definition[
   Let $(cC, ⋅, I) space (cD, (x), 1)$ be symmetric monoidal categories.
@@ -867,13 +867,13 @@ Similarly, if $LL$ has a terminal object $top$, $!top tilde.eq 1$.
 
 #definition(subtitle: [Duality in $RR^X_+$])[
   Let $X$ be a countable set :
-  - For all $x in X$, define $Pi_x : cases(RR^X_+ -> RR_+, a space t-> space a_x)$
+  - For all $x in X$, define $pi_x : cases(RR^X_+ -> RR_+, a space t-> space a_x)$
 
-    define $e_x in RR^X_+$ by $pi_x(e_x) = 1$
+    define $e_x in RR^X_+$ by $pi_x (e_x) = 1$
   - For all $a, b in RR^X_+$, let $a ⋅ b = sum_(x in X) a_x b_x in [0, +infinity[]$
   - For all $P subset.eq RR^X_+$, let
     $
-      P^bot = { b in RR^X_+; forall a in P, underbrace((a⋅b <= 1), R(A, b)) } subset.eq RR^X_+
+      P^bot = { b in RR^X_+; forall a in P, underbrace(a⋅b <= 1, R(A, b)) } subset.eq RR^X_+
     $
     In particular $P^(bot bot) subset.eq P$
 ]
